@@ -8,7 +8,7 @@ session_start();
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Sistema Documentario yixon | Panel</title>
+  <title>UNEFA</title>
   <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="_recursos/css/bootstrap.css" type="text/css" />
@@ -48,7 +48,7 @@ session_start();
           <!--<i class="glyphicon glyphicon-leaf icon text-success"></i>-->
           <i class="fa fa-list icon text-success"></i>
           <img src="_recursos/img/logo.png" alt="." class="hide">
-          <span class="hidden-folded m-l-xs">Sis. Tramite</span>
+          <span class="hidden-folded m-l-xs">UNEFA</span>
         </a>
       </div>
       <div class="collapse pos-rlt navbar-menu-wrapper navbar-collapse box-shadow bg-white-only">
@@ -212,17 +212,17 @@ session_start();
                   <b class="badge bg-info pull-right">C</b>
                   </span>
                   <i class="fa fa-briefcase icon text-info-lter text-success"></i>
-                  <span class="font-bold" translate="aside.nav.Mantenimiento">CIUDADANO</span>
+                  <span class="font-bold" translate="aside.nav.Mantenimiento">ESTUDIANTES</span>
                 </a>
                 <ul class="nav nav-sub dk">
                   <li ui-sref-active="active" onclick="cargar_contenido('main-content','Ciudadano/vista_listar_ciudadano.php');">
                     <a ui-sref="app.dashboard-v2">
-                    <span>Listar Ciudadano</span>
+                    <span>Listar Estudiantes</span>
                     </a>
                   </li>
                   <li ui-sref-active="active">
                     <a ui-sref="app.dashboard-v1" onclick="cargar_contenido('main-content','Ciudadano/vista_registrar_ciudadano.php');">
-                    <span>Nuevo Ciudadano</span>
+                    <span>Nuevo Estudiante</span>
                     </a>
                   </li>
                 </ul>
@@ -351,7 +351,7 @@ session_start();
           <div class="panel panel-default">
             <div class="panel-body">
               <div style="text-align: center;" align="center">
-              <img style="text-align: center;" align="center" src="simbolounefa.png">
+              <img style="text-align: center; zoom: 2;" align="center" src="Logounefa.jpg">
             </div>
             </div>  
           </div>

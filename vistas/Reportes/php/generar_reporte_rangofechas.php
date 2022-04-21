@@ -1,6 +1,6 @@
 <?php
 require('../fpdf/fpdf.php');
-$mysqli = new mysqli("localhost","root","","bd_tramite"); 
+$mysqli = new mysqli("localhost","root","","Universidad"); 
 	
 if(mysqli_connect_errno()){
 	echo 'Conexion Fallida : ', mysqli_connect_error();

@@ -1039,9 +1039,14 @@ protected function _dochecks()
 	// Check mbstring overloading
 	if(ini_get('mbstring.func_overload') & 2)
 		$this->Error('mbstring overloading must be disabled');
+
 	// Ensure runtime magic quotes are disabled
-	if(get_magic_quotes_runtime())
+	//Desactivada funcion porque no es necesaria en esta version de php
+	/*if(get_magic_quotes_runtime())
 		@set_magic_quotes_runtime(0);
+	*/
+	
+	ini_set('magic_quotes_runtime', 0);
 }
 
 protected function _checkoutput()
@@ -1256,7 +1261,7 @@ protected function _parsejpg($file)
 protected function _parsepng($file)
 {
 	// Extract info from a PNG file
-	$f = fopen($file,'rb');
+	$f = fopen($file,'rb'); //yixonsmith
 	if(!$f)
 		$this->Error('Can\'t open image file: '.$file);
 	$info = $this->_parsepngstream($f,$file);

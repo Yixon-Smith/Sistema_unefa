@@ -4,7 +4,7 @@
 <div class="contendor_kn">
   <div class="panel panel-default">
     <div class="panel-heading">
-        <h2><b>CIUDADANO REGISTRADO</b></h2>            
+        <h2><b>ESTUDIANTES REGISTRADO</b></h2>            
     </div>
     <div class="panel-body">
 	    <br>
@@ -20,7 +20,7 @@
             <div class="table-responsive" style="text-align: center;">
             	<br>
             	<div id="ejemplo"></div>
-            	<label>LISTADO DE CIUDADANOS</label>
+            	<label>LISTADO DE ESTUDIANTES</label>
                 <div id="lista_ciudadano_tabla" class="icon-loading">
                 </div>
                 <p id="paginador_ciudadano_tabla" style="text-align:right" class="mi_paginador"></p>

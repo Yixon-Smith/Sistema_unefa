@@ -20,14 +20,14 @@ session_start();
 </head>
 <body>
 	<div class="main-w3ls">
-		<div class="left-content" style="text-align: center;" align="center">
+		<div class="right-content" style="text-align: center;" align="center">
 			<br><br><br><br><br><br><br><br><br>
-			<!--<img  style="width: 60%;" src="_plantilla/images/logo_1.png" />-->
-			<img  style="width: 90%;" src="_plantilla/images/logo_2.png" />
+			<!--<img  style="width: 60%;" src="_plantilla/images/logo_1.png" />
+			<img  style="width: 90%;" src="_plantilla/images/fondoinicio.jpg" />-->
 			<div class="copyright">
 			</div>
 		</div>
-		<div class="right-form-agile">
+		<div class="left-form-agile">
 			<div class="sub-main-w3">
 				<br>
 				<br>
@@ -36,11 +36,11 @@ session_start();
 				<h3>INICIAR SESION </h3>
 				<br>
 				<div class="form-style-agile">
-					<label style="color:#000000;">Usurname</label>
+					<label style="color:#000000;">Username</label>
 					<br>							
 					<div class="input-group mb-3">
 					    <div class="input-group-prepend" >
-					    <span class="input-group-text" id="basic-addon1" style="background-color: white"><span style="color:#e84601" class="fas fa-user"></span></span>
+					    <span class="input-group-text" id="basic-addon1" style="background-color: white"><span style="color:#02196e" class="fas fa-user"></span></span>
 				        </div>
 						<input type="text" class="form-control" placeholder="Ususario" id="txt_usuario">
 					</div>
@@ -51,13 +51,13 @@ session_start();
 					<div class="input-group mb-3">
 					    <div class="input-group-prepend" >
 					  	    <br>
-					        <span class="input-group-text" id="basic-addon1" style="background-color: white"><span style="color:#e84601" class="fa  fa-unlock-alt"></span></span>
+					        <span class="input-group-text" id="basic-addon1" style="background-color: white"><span style="color:#02196e" class="fa  fa-unlock-alt"></span></span>
 					    </div>
 						<input type="password" class="form-control" placeholder="Password" aria-label="Password" id="txt_pass">
 					</div>
 				</div>
 				<a href="seguimiento.php" class="btn btn-default" style="box-shadow: 0 0 0 .2rem rgba(0,0,0,0);">Seguimiento Documentario</a><br><br>
-				<button onclick="VerificarUsuario()" style="background: #e84601;border-top-color: rgb(232, 70, 1);border-bottom-color:rgb(232, 70, 1);border-left-color:rgb(232, 70, 1);border-right-color:rgb(232, 70, 1);color: white;" class="btn btn-warning btn-block btn-lg" >Entrar</button>
+				<button onclick="VerificarUsuario()" style="background: #02196e;border-top-color: #02196e;border-bottom-color:#02196e;border-left-color:#02196e;border-right-color:#02196e;color: white;" class="btn btn-warning btn-block btn-lg" >Entrar</button>
 			</div>
 		</div>
 	</div>

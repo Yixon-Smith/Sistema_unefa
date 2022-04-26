@@ -39,11 +39,23 @@
                 </select>
                 <br>
             </div><br>
+            <div class="col-sm-4">
+                <label >Tipo Sangre</label>
+                <select id="txtSangre" class="form-control select3" name="txtSangre">
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </select>
+                <br>
+            </div><br>
             <div class="col-md-4">
-                <label>Tipo Persona </label>
+                <label>MATRICULA</label>
                 <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
-                  <option value="JURIDICA">JURIDICA</option>
-                  <option value="NATURAL">NATURAL</option>
+                  <option value="2613">ING.SISTEMA</option>
+                  <option value="2013">ING.ELECTRICA</option>
+                  <option value="NATURAL">ING.AGRONOMIA</option>
+                  <option value="NATURAL">LIC.ADMINISTRACION</option>
+                  <option value="NATURAL">LIC.ECONOMIA</option>
+                  <option value="NATURAL">TSU.ENFERMERIA</option>
                 </select>
                 <br>
             </div>   

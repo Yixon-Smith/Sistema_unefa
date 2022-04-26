@@ -4,6 +4,8 @@
   .input-group .custom-file {
     position: relative;
     flex: 1 1 auto;
+
+   
  /*   width: 1%;*/
     margin-bottom: 0; }
 
@@ -55,6 +57,11 @@
 
 .input-group-prepend {
   margin-right: -1px; }
+
+   /*input tiposangre*/
+   select#txtSangre {
+    width: 25% !important;
+  }
 
 .input-group-append {
   margin-left: -1px; }

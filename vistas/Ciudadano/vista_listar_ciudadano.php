@@ -56,10 +56,22 @@
 	                        <br>
 	                    </div> 
 	                    <div class="col-md-6">
-	                        <label>Tipo Persona </label>
+	                        <label>MATRICULA</label>
 	                        <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
-	                          <option value="JURIDICA">JURIDICA</option>
-	                          <option value="NATURAL">NATURAL</option>
+							<option value="2613">ING.SISTEMA</option>
+							<option value="2013">ING.ELECTRICA</option>
+							<option value="NATURAL">ING.AGRONOMIA</option>
+							<option value="NATURAL">LIC.ADMINISTRACION</option>
+							<option value="NATURAL">LIC.ECONOMIA</option>
+							<option value="NATURAL">TSU.ENFERMERIA</option>
+	                        </select>
+	                        <br>
+	                    </div> 
+						<div class="col-md-6">
+	                        <label>Tipo Sangre </label>
+	                        <select id="txtsangre"  style="width: 100%" class="form-control select3">
+	                          <option value="O+">O+</option>
+	                          <option value="E-">E-</option>
 	                        </select>
 	                        <br>
 	                    </div> 
@@ -150,5 +162,11 @@
 <script>
     $(function () {
         $('.select2').select2();
+    })
+</script>
+
+<script>
+    $(function () {
+        $('.select3').select3();
     })
 </script>

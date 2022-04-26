@@ -326,7 +326,7 @@ a.list-group-item.hover {
 
 .nav > li > a:hover,
 .nav > li > a:focus {
-  background-color: #f6f8f8;
+  background-color: #16e57c;
 }
 
 .nav.nav-lg > li > a {
@@ -356,7 +356,7 @@ a.list-group-item.hover {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #f6f8f8;
+  background-color: #16e57c;
 }
 
 .nav-tabs {
@@ -2912,7 +2912,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-dark {
   color: #a6a8b1;
-  background-color: #3a3f51;
+  background-color: #000000;
 }
 
 .bg-dark.lt,
@@ -2990,7 +2990,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-dark .text-muted {
-  color: #8b8e99 !important;
+  color: #f7e50a !important;
 }
 
 .bg-dark .text-lt {
@@ -3663,7 +3663,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-white-only {
-  background-color: #1abc9c;
+  background-color: #ffd300;
 }
 
 .bg-white-opacity {

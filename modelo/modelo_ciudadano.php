@@ -8,8 +8,8 @@
 			$this->conexion = new conexion();
 			$this->conexion->conectar();
 		}
-		function Registrar_ciudadano($nombre,$apePat,$apeMat,$tipope,$telefo,$movil,$direcc,$fecnac,$dni,$email,$genero){
-			$sql = "call PA_REGISTRARCIUDADANO('$nombre','$apePat','$apeMat','$tipope','$telefo','$movil','$direcc','$fecnac','$dni','$email','$genero')";
+		function Registrar_ciudadano($nombre,$apePat,$apeMat,$tipope,$telefo,$movil,$direcc,$fecnac,$dni,$email,$genero,$tsangre){
+			$sql = "call PA_REGISTRARCIUDADANO('$nombre','$apePat','$apeMat','$tipope','$telefo','$movil','$direcc','$fecnac','$dni','$email','$genero','$tsangre')";
 			if ($resultado = $this->conexion->conexion->query($sql)){
 				return 1;
 			}
@@ -30,9 +30,9 @@
 		}
 		function listar_ciudadano($valor, $inicio=FALSE,$limite=FALSE){
 			if ($inicio!==FALSE && $limite!==FALSE) {
-			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC LIMIT $inicio,$limite";
+			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_sangre,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC LIMIT $inicio,$limite";
 			}else{
-			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC";
+			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_sangre,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC";
 			}
 			$resultado =  $this->conexion->conexion->query($sql);
 			$arreglo = array();
@@ -55,9 +55,9 @@
 		}
 		function listar_ciudadanoremitente($valor, $inicio=FALSE,$limite=FALSE){
 			if ($inicio!==FALSE && $limite!==FALSE) {
-			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_estado = 'ACTIVO' and ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC LIMIT $inicio,$limite";
+			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_sangre,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_estado = 'ACTIVO' and ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC LIMIT $inicio,$limite";
 			}else{
-			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_estado = 'ACTIVO'  AND ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC";
+			    $sql = "SELECT ciudadano.ciudadano_cod,ciudadano.ciud_nombres,ciudadano.ciud_apellidoPate,ciudadano.ciud_apellidoMate,ciudadano.ciud_dni,ciudadano.ciud_sexo,ciudadano.ciud_sangre,ciudadano.ciud_fechaNacimiento,ciudadano.ciud_direccion,ciudadano.ciud_telefono,ciudadano.ciud_movil,ciudadano.ciud_email,ciudadano.ciud_fecharegistro,ciudadano.ciud_estado,ciudadano.ciud_tipo FROM ciudadano where ciudadano.ciud_estado = 'ACTIVO'  AND ciudadano.ciud_dni like '".$valor."%' ORDER BY ciudadano.ciudadano_cod DESC";
 			}
 			$resultado =  $this->conexion->conexion->query($sql);
 			$arreglo = array();

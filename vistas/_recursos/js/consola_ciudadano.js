@@ -40,8 +40,9 @@ function listar_ciudadano_vista(valor,pagina){
 				cadena += "<th style = 'text-align: center'>NOMBRE Y APELLIDOS</th>";
 				cadena += "<th style = 'text-align: center'>DNI</th>";
 				cadena += "<th style = 'text-align: center'>SEXO</th>";
+				cadena += "<th style = 'text-align: center'>SANGRE</th>";
 				cadena += "<th style = 'text-align: center'>FECHA NACIMIENTO</th>";
-				cadena += "<th style = 'text-align: center'>TIPO PERSONA</th>";
+				cadena += "<th style = 'text-align: center'>MATRICULA</th>";
 				cadena += "<th style = 'text-align: center'>ESTADO</th>";
 				cadena += "<th>ACCI&Oacute;N</th>";
 				cadena += "<th>REPORTE</th>";
@@ -55,8 +56,9 @@ function listar_ciudadano_vista(valor,pagina){
 					cadena += "<td align='center'>"+valores[i][4]+"</td>";
 					cadena += "<td align='center'>"+valores[i][5]+"</td>";
 					cadena += "<td align='center'>"+valores[i][6]+"</td>";
-					cadena += "<td align='center'>"+valores[i][13]+"</td>";
-					if (valores[i][12]=="INACTIVO") {
+					cadena += "<td align='center'>"+valores[i][7]+"</td>";
+					cadena += "<td align='center'>"+valores[i][14]+"</td>";
+					if (valores[i][13]=="INACTIVO") {
 						cadena += "<td style = 'text-align: center'> <span class='badge bg-danger' style='color:White;'>"+valores[i][12]+"</span> </td>";
 					}else{
 						cadena += "<td  style = 'text-align: center'> <span class='badge bg-success' style='color:White;'>"+valores[i][12]+"</span> </td>";
@@ -122,7 +124,7 @@ function listar_ciudadano_vista(valor,pagina){
 				cadena += "<th style = 'text-align: center'>DNI</th>";
 				cadena += "<th style = 'text-align: center'>SEXO</th>";
 				cadena += "<th style = 'text-align: center'>FECHA NACIMIENTO</th>";
-				cadena += "<th style = 'text-align: center'>TIPO PERSONA</th>";
+				cadena += "<th style = 'text-align: center'>MATRICULA</th>";
 				cadena += "<th style = 'text-align: center'>ESTADO</th>";
 				cadena += "<th>ACCI&Oacute;N</th>";
 				cadena += "<th>REPORTE</th>";				
@@ -279,6 +281,7 @@ function Registrar_ciudadano(){
 	var direccion = $("#txtdireccion").val();
 	var dni       = $("#txtdni").val();
 	var sexo      = $("#txtGenero").val();
+	var sangre      = $("#txtSangre").val();
 	var tipo      = $("#cbm_tipo").val();
 	var email     = $("#txtemail").val();
 	var telefono  = $("#txttelefono").val();
@@ -297,7 +300,8 @@ function Registrar_ciudadano(){
 			fecha:fecha,
 			nrodocume:dni,
 			email:email,
-			sexo:sexo
+			sexo:sexo,
+			sangre:sangre
 		}
 	})
 	.done(function(resp){

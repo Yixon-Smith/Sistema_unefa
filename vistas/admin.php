@@ -165,8 +165,8 @@ session_start();
               <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                 <span translate="aside.nav.HEADER">PANEL ADMINISTRATIVO</span>
               </li>
-              <li>
-                <a href class="auto">      
+              <li >
+                <a href class="auto" style="display:none;">      
                   <span class="pull-right text-muted">
                   <b class="badge bg-info pull-right">M</b>
                   </span>
@@ -197,16 +197,19 @@ session_start();
                     <span>Listar Personal</span>
                     </a>
                   </li>
-                  <li ui-sref-active="active">
+
+                  <!--Agregar nuevos documentos en modulo de ciudano lo comento porque en la otra vista EXISTE UN BOTON QUE LO LLAMA-->
+                <!--  <li ui-sref-active="active">
                     <a ui-sref="app.dashboard-v1" onclick="cargar_contenido('main-content','Personal/vista_registrar_personal.php');">
                     <span>Nuevo Personal</span>
                     </a>
-                  </li>
+                  </li>-->
+
                 </ul>
               </li>
             <?php }
             ?>
-              <li>
+              <li >
                 <a href class="auto">      
                   <span class="pull-right text-muted">
                   <b class="badge bg-info pull-right">C</b>
@@ -215,20 +218,22 @@ session_start();
                   <span class="font-bold" translate="aside.nav.Mantenimiento">ESTUDIANTES</span>
                 </a>
                 <ul class="nav nav-sub dk">
-                  <li ui-sref-active="active" onclick="cargar_contenido('main-content','Ciudadano/vista_listar_ciudadano.php');">
+                  <li ui-sref-active="active"  onclick="cargar_contenido('main-content','Ciudadano/vista_listar_ciudadano.php');">
                     <a ui-sref="app.dashboard-v2">
                     <span>Listar Estudiantes</span>
                     </a>
                   </li>
-                  <li ui-sref-active="active">
+
+                  <!--Agregar nuevos documentos en modulo de ciudano lo comento porque en la otra vista EXISTE UN BOTON QUE LO LLAMA-->
+                <!--  <li ui-sref-active="active">
                     <a ui-sref="app.dashboard-v1" onclick="cargar_contenido('main-content','Ciudadano/vista_registrar_ciudadano.php');">
                     <span>Nuevo Estudiante</span>
                     </a>
-                  </li>
+                  </li>-->
                 </ul>
               </li>
               <li>
-                <a href class="auto">      
+                <a  style="display:none;" shref class="auto">      
                   <span class="pull-right text-muted">
                   <b class="badge bg-info pull-right">I</b>
                   </span>
@@ -250,7 +255,7 @@ session_start();
                 </ul>
               </li>
               <li>
-                <a href class="auto">      
+                <a style="display:none;"s href class="auto">      
                   <span class="pull-right text-muted">
                   <b class="badge bg-info pull-right">A</b>
                   </span>
@@ -282,11 +287,14 @@ session_start();
                     <span>Listar Documento</span>
                     </a>
                   </li>
-                  <li ui-sref-active="active">
+
+                  <!--Agregar nuevos documentos en modulo de ciudano lo comento porque en la otra vista EXISTE UN BOTON QUE LO LLAMA-->
+                 <!-- <li ui-sref-active="active">
                     <a ui-sref="app.dashboard-v2 "onclick="cargar_contenido('main-content','Documento/vista_documento_registrar.php')">
                     <span>Nuevo Documento</span>
                     </a>
-                  </li>
+                  </li>-->
+
                 </ul>
               </li>
                <li>
@@ -303,11 +311,14 @@ session_start();
                     <span>Lista de tipos de documentos</span>
                     </a>
                   </li>
-                  <li ui-sref-active="active"onclick="cargar_contenido('main-content','Tipo_Documento/vista_tipoDocumento_Registrar.php');">
+                 
+                <!--Agregar nuevos documentos en modulo de ciudano lo comento porque en la otra vista EXISTE UN BOTON QUE LO LLAMA-->
+                 <!--*<li ui-sref-active="active"onclick="cargar_contenido('main-content','Tipo_Documento/vista_tipoDocumento_Registrar.php');">
                     <a ui-sref="app.dashboard-v2">
                     <span>Nuevo Tipo de documento</span>
                     </a>
-                  </li>
+                  </li>-->
+
                 </ul>
                 </li>
               <li class="line dk">
@@ -319,13 +330,13 @@ session_start();
                   <i class="glyphicon glyphicon-print icon text-info-lter"></i>
                   <span class="font-bold" translate="aside.nav.Compra">REPORTES</span>
                 </a> 
-                <ul class="nav nav-sub dk">
-                    <li ui-sref-active="active"onclick="cargar_contenido('main-content','RangoFechas/vista_rangofechas_listar.php');">
+                <ul  class="nav nav-sub dk">
+                    <li style="display:none;" ui-sref-active="active"onclick="cargar_contenido('main-content','RangoFechas/vista_rangofechas_listar.php');">
                       <a ui-sref="app.dashboard-v2">
                         <span>Reportes de documentos - Rango Fechas</span>
                       </a>
                     </li>
-                    <li ui-sref-active="active" onclick="AbrirReporteInstitucion()"  >
+                    <li style="display:none;" ui-sref-active="active" onclick="AbrirReporteInstitucion()"  >
                       <a ui-sref="app.dashboard-v1">
                       <span>Reportes de documentos institucionales</span>
                       </a>

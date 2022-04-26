@@ -10,8 +10,10 @@
 	$dni    = $_POST["nrodocume"];
 	$email  = $_POST["email"];
 	$genero = $_POST["sexo"];
+	$tsangre = $_POST["sangre"];
+
 	include '../../modelo/modelo_ciudadano.php';
 	$MC = new Modelo_ciuadano();
-	$consulta = $MC->Registrar_ciudadano($nombre,$apePat,$apeMat,$tipope,$telefo,$movil,$direcc,$fecnac,$dni,$email,$genero);
+	$consulta = $MC->Registrar_ciudadano($nombre,$apePat,$apeMat,$tipope,$telefo,$movil,$direcc,$fecnac,$dni,$email,$genero,$tsangre);
 	echo $consulta;
 ?>

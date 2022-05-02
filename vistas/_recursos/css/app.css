@@ -2912,7 +2912,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-dark {
   color: #a6a8b1;
-  background-color: #000000;
+  background-color: #192e63;
 }
 
 .bg-dark.lt,
@@ -2990,7 +2990,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-dark .text-muted {
-  color: #f7e50a !important;
+  color: #ffffff ;
 }
 
 .bg-dark .text-lt {
@@ -3743,7 +3743,7 @@ a.text-success:hover {
 }
 
 .text-success {
-  color: #27c24c;
+  color: #ffd300;
 }
 
 .text-success-lt {

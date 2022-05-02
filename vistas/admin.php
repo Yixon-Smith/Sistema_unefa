@@ -362,7 +362,7 @@ session_start();
           <div class="panel panel-default">
             <div class="panel-body">
               <div style="text-align: center;" align="center">
-              <img style="text-align: center; zoom: 2;" align="center" src="Logounefa.jpg">
+              <img style="text-align: center; width:100%; height: 690px; padding:5px;" align="center" src="menuprincipal.jpg">
             </div>
             </div>  
           </div>
@@ -419,7 +419,7 @@ session_start();
   <!-- Final Pluggin -->
   <style type="text/css">
   .contendor_kn{
-    padding: 10px;
+    padding: 0px;
   }
 </style>
 

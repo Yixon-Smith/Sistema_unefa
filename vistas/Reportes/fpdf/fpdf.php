@@ -1265,7 +1265,7 @@ protected function _parsepng($file)
 	if(!$f)
 		$this->Error('Can\'t open image file: '.$file);
 	$info = $this->_parsepngstream($f,$file);
-	fclose($f);s5
+	fclose($f);
 	return $info;
 }
 

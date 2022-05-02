@@ -205,6 +205,13 @@ img {
 body {
     font-size: 100%;
     font-family: 'Poppins', sans-serif;
+   
+}
+
+.fondoinicio{
+    background-image: url(../images/fondologin2.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*--header--*/
@@ -230,6 +237,7 @@ h1 a i {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .left-content {
@@ -325,7 +333,7 @@ a.button-w3ls i:hover {
 
 .sub-main-w3 {
     padding: 3vw 3.5vw 2.5vw;
-    background: #fff;
+    /*background: #1e0808a8;*/
     min-height: 100vh;
 }
 
@@ -337,7 +345,7 @@ a.button-w3ls i:hover {
 }
 
 .sub-main-w3 h3 {
-    color: #0e0e0e;
+    color: #ffffff;
     font-size: 32px;
     letter-spacing: 1px;
     font-weight: 600;

@@ -18,12 +18,12 @@ session_start();
 	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
 	<link rel="stylesheet" href="_plantilla/js/sweetalert.css">
 </head>
-<body>
+<body class="fondoinicio">
 	<div class="main-w3ls">
 		<div class="right-content" style="text-align: center;" align="center">
 			<br><br><br><br><br><br><br><br><br>
 			<!--<img  style="width: 60%;" src="_plantilla/images/logo_1.png" />
-			<img  style="width: 90%;" src="_plantilla/images/fondoinicio.jpg" />-->
+			<img  style="width: 100%;" src="_plantilla/images/fondoinicio.jpg" />-->
 			<div class="copyright">
 			</div>
 		</div>
@@ -36,17 +36,17 @@ session_start();
 				<h3>INICIAR SESION </h3>
 				<br>
 				<div class="form-style-agile">
-					<label style="color:#000000;">Username</label>
+					<label >Usuario</label>
 					<br>							
 					<div class="input-group mb-3">
 					    <div class="input-group-prepend" >
 					    <span class="input-group-text" id="basic-addon1" style="background-color: white"><span style="color:#02196e" class="fas fa-user"></span></span>
 				        </div>
-						<input type="text" class="form-control" placeholder="Ususario" id="txt_usuario">
+						<input type="text" class="form-control" placeholder="Usuario" id="txt_usuario">
 					</div>
 				</div>
 				<div class="form-style-agile">
-					<label style="color:#000000;">Password</label>
+					<label >Contraseña</label>
 					<br>	
 					<div class="input-group mb-3">
 					    <div class="input-group-prepend" >
@@ -56,7 +56,7 @@ session_start();
 						<input type="password" class="form-control" placeholder="Password" aria-label="Password" id="txt_pass">
 					</div>
 				</div>
-				<a href="seguimiento.php" class="btn btn-default" style="box-shadow: 0 0 0 .2rem rgba(0,0,0,0);">Seguimiento Documentario</a><br><br>
+				<a href="seguimiento.php" class="btn btn-default" style=" display:none; box-shadow: 0 0 0 .2rem rgba(0,0,0,0);">Seguimiento Documentario</a><br><br>
 				<button onclick="VerificarUsuario()" style="background: #02196e;border-top-color: #02196e;border-bottom-color:#02196e;border-left-color:#02196e;border-right-color:#02196e;color: white;" class="btn btn-warning btn-block btn-lg" >Entrar</button>
 			</div>
 		</div>

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2019 a las 06:36:58
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Tiempo de generación: 22-05-2022 a las 22:21:29
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -123,9 +124,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_REGISTRARAREA` (IN `NOMBRE` VARC
 INSERT INTO area (area_nombre,area_estado) VALUES(NOMBRE,'ACTIVO');
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_REGISTRARCIUDADANO` (IN `nombre` VARCHAR(100), IN `apePat` VARCHAR(50), IN `apeMat` VARCHAR(50), IN `tipope` VARCHAR(50), IN `telefo` CHAR(9), IN `movil` CHAR(9), IN `direcc` VARCHAR(250), IN `fecnac` DATE, IN `dni` CHAR(8), IN `email` VARCHAR(30), IN `genero` CHAR(1))  BEGIN
-INSERT INTO ciudadano(ciud_nombres,ciud_apellidoPate,ciud_apellidoMate,ciud_dni,ciud_sexo,ciud_fechaNacimiento,ciud_direccion,ciud_telefono,ciud_movil,ciud_email,ciud_estado,ciud_tipo) VALUES
-(nombre,apePat,apeMat,dni,genero,fecnac,direcc,telefo,movil,email,'ACTIVO',tipope);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_REGISTRARCIUDADANO` (IN `nombre` VARCHAR(100), IN `apePat` VARCHAR(50), IN `apeMat` VARCHAR(50), IN `tipope` VARCHAR(50), IN `telefo` CHAR(9), IN `movil` CHAR(9), IN `direcc` VARCHAR(250), IN `fecnac` DATE, IN `dni` CHAR(8), IN `email` VARCHAR(30), IN `genero` CHAR(1), IN `tsangre` CHAR(2))  BEGIN
+INSERT INTO ciudadano(ciud_nombres,ciud_apellidoPate,ciud_apellidoMate,ciud_dni,ciud_sexo,ciud_sangre,ciud_fechaNacimiento,ciud_direccion,ciud_telefono,ciud_movil,ciud_email,ciud_estado,ciud_tipo) VALUES
+(nombre,apePat,apeMat,dni,genero,tsangre,fecnac,direcc,telefo,movil,email,'ACTIVO',tipope);
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_REGISTRARDOCUMENTO` (IN `iddocumento` CHAR(13), IN `asunto` VARCHAR(150), IN `idtipodocu` INT, IN `idarea` INT, IN `idremitente` INT, IN `idusuario` INT, IN `opcion` VARCHAR(10))  BEGIN
@@ -196,7 +197,7 @@ DELIMITER ;
 CREATE TABLE `area` (
   `area_cod` int(11) NOT NULL COMMENT 'Codigo auto-incrementado del movimiento del area',
   `area_nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'nombre del area',
-  `area_fecha_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'fecha del registro del movimiento',
+  `area_fecha_registro` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'fecha del registro del movimiento',
   `area_estado` enum('ACTIVO','INACTIVO') COLLATE utf8_unicode_ci NOT NULL COMMENT 'estado del area'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Entidad Area';
 
@@ -226,22 +227,22 @@ CREATE TABLE `ciudadano` (
   `ciud_telefono` char(9) NOT NULL,
   `ciud_movil` char(9) NOT NULL,
   `ciud_email` varchar(80) NOT NULL,
-  `ciud_fecharegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ciud_fecharegistro` timestamp NOT NULL DEFAULT current_timestamp(),
   `ciud_estado` enum('ACTIVO','INACTIVO') NOT NULL,
-  `ciud_tipo` enum('NATURAL','JURIDICA') NOT NULL
+  `ciud_tipo` enum('NATURAL','JURIDICA') NOT NULL,
+  `ciud_sangre` char(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `ciudadano`
 --
 
-INSERT INTO `ciudadano` (`ciudadano_cod`, `ciud_nombres`, `ciud_apellidoPate`, `ciud_apellidoMate`, `ciud_dni`, `ciud_sexo`, `ciud_fechaNacimiento`, `ciud_direccion`, `ciud_telefono`, `ciud_movil`, `ciud_email`, `ciud_fecharegistro`, `ciud_estado`, `ciud_tipo`) VALUES
-(4, 'PIERO', 'AVILA', 'MERCADO', '7334017', 'M', '2018-11-21', 'MI CASA', '222', '9292', 'sjjs@gmail.com', '2018-11-21 06:54:46', 'ACTIVO', 'JURIDICA'),
-(5, 'sddsds', 'sdds', 'hghsh', '237236', 'M', '2018-11-12', 'hgsghgshd', '3232', '2332', 'weew', '2018-11-21 07:10:04', 'ACTIVO', 'JURIDICA'),
-(6, 'sdsd', 'sfsd', 'sdsd', '3232', 'M', '2016-12-22', 'sdas', '22', '3232', 'sdsd@gmail.com', '2018-11-21 07:11:24', 'ACTIVO', 'JURIDICA'),
-(7, 'sdds', 'jwejewj', 'jjewj', '238328', 'M', '2018-11-12', 'jewjewj', '23', '32232323', 'sds', '2018-11-21 07:13:09', 'ACTIVO', 'JURIDICA'),
-(8, 'jhhdf', 'jsjh', 'kjjhdsjh', '87238732', 'M', '2018-11-19', 'jhsjjhshjd', '434', '3443', 'sdsdds', '2018-11-21 07:15:21', 'ACTIVO', 'JURIDICA'),
-(9, 'YASMIN', 'YASMIN', 'YASMIN', '222', 'F', '2017-10-21', 'YASMIN', '23', '23', 'sdds', '2018-11-21 07:41:23', 'ACTIVO', 'NATURAL');
+INSERT INTO `ciudadano` (`ciudadano_cod`, `ciud_nombres`, `ciud_apellidoPate`, `ciud_apellidoMate`, `ciud_dni`, `ciud_sexo`, `ciud_fechaNacimiento`, `ciud_direccion`, `ciud_telefono`, `ciud_movil`, `ciud_email`, `ciud_fecharegistro`, `ciud_estado`, `ciud_tipo`, `ciud_sangre`) VALUES
+(9, 'YASMIN', 'YASMIN', 'YASMIN', '222', 'F', '2017-10-21', 'YASMIN', '23', '23', 'sdds', '2018-11-21 07:41:23', 'ACTIVO', 'NATURAL', ''),
+(65, 'yixo', 'mendoza', 'smith', '3434343', 'M', '2022-05-18', 'called 54', '34343', '343434', 'yixonfdf', '2022-05-20 17:54:15', 'INACTIVO', 'NATURAL', ''),
+(345, 'yixon', 'smith', 'mendoza', '343434', 'm', '2022-05-25', 'ererefefe', '3435', '343434', 'yytytytt', '2022-05-26 17:57:04', 'INACTIVO', 'NATURAL', 'O+'),
+(346, 'jhghgjh', 'MENDOZA', 'GONZALEZ', '99887', 'M', '2022-04-29', 'calle 2 entre 5', '416553796', '416553796', 'jhjgjkgkjh@', '2022-05-22 18:16:10', 'ACTIVO', '', '0'),
+(347, 'yiyiu', 'tyty', 'rtryt', '456456', 'm', '0000-00-00', 'hfghgfhgf', '465464', '4564345', 'yo@gmail.com', '2022-05-22 18:33:22', 'ACTIVO', '', 'o+');
 
 -- --------------------------------------------------------
 
@@ -284,7 +285,7 @@ CREATE TABLE `detalle_institucion` (
 CREATE TABLE `documento` (
   `documento_cod` char(13) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Codigo auto-incrementado del documento',
   `doc_asunto` varchar(150) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Asunto del documento',
-  `doc_fecha_recepcion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'fecha del registro del documento',
+  `doc_fecha_recepcion` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'fecha del registro del documento',
   `tipoDocumento_cod` int(11) NOT NULL COMMENT 'codigo del tipo de documentos',
   `area_cod` int(11) NOT NULL COMMENT 'Destino del documento',
   `usu_cod` int(11) NOT NULL COMMENT 'Codigo de Usuario',
@@ -341,7 +342,7 @@ CREATE TABLE `personal` (
   `pers_telefono` char(9) NOT NULL,
   `pers_movil` char(9) NOT NULL,
   `pers_email` varchar(80) NOT NULL,
-  `pers_fecharegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `pers_fecharegistro` timestamp NOT NULL DEFAULT current_timestamp(),
   `pers_estado` enum('ACTIVO','INACTIVO') NOT NULL,
   `usuario_cod` int(11) NOT NULL,
   `pers_puesto` enum('DIRECTOR','SECRETARIA') NOT NULL
@@ -507,46 +508,55 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `area`
   MODIFY `area_cod` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codigo auto-incrementado del movimiento del area', AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `ciudadano`
 --
 ALTER TABLE `ciudadano`
-  MODIFY `ciudadano_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ciudadano_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=348;
+
 --
 -- AUTO_INCREMENT de la tabla `detalle_ciudadano`
 --
 ALTER TABLE `detalle_ciudadano`
   MODIFY `detalleciudadano_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT de la tabla `detalle_institucion`
 --
 ALTER TABLE `detalle_institucion`
   MODIFY `detalleinstitucion_cod` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `institucion`
 --
 ALTER TABLE `institucion`
   MODIFY `institucion_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
   MODIFY `personal_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de la tabla `tipo_documento`
 --
 ALTER TABLE `tipo_documento`
   MODIFY `tipodocumento_cod` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codigo auto-incrementado del tipo documento', AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
   MODIFY `cod_tipousuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -584,6 +594,7 @@ ALTER TABLE `personal`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`cod_tipousuario`) REFERENCES `tipo_usuario` (`cod_tipousuario`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

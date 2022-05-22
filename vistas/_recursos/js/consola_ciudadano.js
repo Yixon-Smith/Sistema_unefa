@@ -5,6 +5,7 @@ function Limpieza_post_ciudadano(){
 	$("#txtDireccion").val("");	
 	$("#txtDNI").val("");
 	$("#txtGenero").val("");
+	$("#txtSangre").val("");
 	$("#txtFechaNacimiento").val("");
 	$("#txtDistrito").val("");	
 	$("#txtProvincia").val("");	
@@ -12,6 +13,7 @@ function Limpieza_post_ciudadano(){
 	$("#txtDireccion").val("");
 	$("#txtTelefono").val("");
 	$("#txtEmail").val("");
+	
 	$("#combo_TipoCiudadano").val(1);
 	$('#id_archivo_Fotografia').fileinput('reset');
 	$("#main-content").load("Ciudadano/vista_listar_ciudadano.php") 
@@ -123,6 +125,7 @@ function listar_ciudadano_vista(valor,pagina){
 				cadena += "<th style = 'text-align: center'>NOMBRE Y APELLIDOS</th>";
 				cadena += "<th style = 'text-align: center'>DNI</th>";
 				cadena += "<th style = 'text-align: center'>SEXO</th>";
+				cadena += "<th style = 'text-align: center'>SEXO</th>";
 				cadena += "<th style = 'text-align: center'>FECHA NACIMIENTO</th>";
 				cadena += "<th style = 'text-align: center'>MATRICULA</th>";
 				cadena += "<th style = 'text-align: center'>ESTADO</th>";
@@ -168,6 +171,7 @@ function Editar_ciudadano(){
 	var tipoper   = $("#cbm_tipo").val();
 	var telefono  = $("#txttelefono_modal").val();
 	var movil     = $("#txtmovil_modal").val();
+	var sangre    = $("#txtsangre_modal").val();
 	var direccion = $("#txtdireccion_modal").val();
 	var fecha     = $("#txtfecha_modal").val();
 	var nrodocume = $("#txtnrodocumento").val();
@@ -191,7 +195,8 @@ function Editar_ciudadano(){
 		direccion:direccion,
 		fecha:fecha,
 		nrodocume:nrodocume,
-		email:email
+		email:email,
+		sangre:tsangre
 		}
 	})
 	.done(function(resp){
@@ -281,7 +286,7 @@ function Registrar_ciudadano(){
 	var direccion = $("#txtdireccion").val();
 	var dni       = $("#txtdni").val();
 	var sexo      = $("#txtGenero").val();
-	var sangre      = $("#txtSangre").val();
+	var tsangre      = $("#txtSangre").val();
 	var tipo      = $("#cbm_tipo").val();
 	var email     = $("#txtemail").val();
 	var telefono  = $("#txttelefono").val();
@@ -301,7 +306,7 @@ function Registrar_ciudadano(){
 			nrodocume:dni,
 			email:email,
 			sexo:sexo,
-			sangre:sangre
+			tsangre:tsangre
 		}
 	})
 	.done(function(resp){

@@ -60,7 +60,7 @@
 
    /*input tiposangre*/
    select#txtSangre {
-    width: 25% !important;
+    width: 50% !important;
   }
 
 .input-group-append {

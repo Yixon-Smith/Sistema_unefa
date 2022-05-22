@@ -15,11 +15,10 @@
 </head>
 <body class="fondoinicio">
 	
+	<button onclick=" <?php header('Location: Login/') ?>" >INICIO
+    </button>
 </body>
 <script src="../vistas/_recursos/js/jquery.min.js"></script>
 <script src="../vistas/_recursos/js/consola_usuario.js"></script>
 <script src="_plantilla/js/sweetalert.min.js"></script>
 </html>
-<?php
-	/* header('Location: Login/');*/
-?>

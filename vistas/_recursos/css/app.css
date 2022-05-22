@@ -4110,8 +4110,12 @@ a.text-#000000:hover {
   padding: 10px;
 }
 
+.app-footer.wrapper.b-t.bg-light {
+  padding: 5px !important;
+}
+
 .wrapper {
-  padding: 15px;
+  padding: 5px;
 }
 
 .wrapper-md {

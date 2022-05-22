@@ -69,7 +69,7 @@
 	                    </div> 
 						<div class="col-md-6">
 	                        <label>Tipo Sangre </label>
-	                        <select id="txtsangre"  style="width: 100%" class="form-control select3">
+	                        <select id="txtsangre_modal"  style="width: 100%" class="form-control select3">
 	                          <option value="O+">O+</option>
 	                          <option value="E-">E-</option>
 	                        </select>

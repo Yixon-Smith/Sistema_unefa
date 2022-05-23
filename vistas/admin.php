@@ -232,49 +232,7 @@ session_start();
                   </li>-->
                 </ul>
               </li>
-              <li>
-                <a  style="display:none;" shref class="auto">      
-                  <span class="pull-right text-muted">
-                  <b class="badge bg-info pull-right">I</b>
-                  </span>
-                  <i class="fa fa-folder-open icon text-info-lter"></i>
-                  <span class="font-bold" translate="aside.nav.Mantenimiento">INSTITUCIÓN</span>
-                </a>
-                <ul class="nav nav-sub dk">
-                  <li ui-sref-active="active"onclick="cargar_contenido('main-content','Institucion/vista_institucion_listar.php');">
-                    <a ui-sref="app.dashboard-v2">
-                    <span>Listar Instituci&oacute;n</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.dashboard-v1"onclick="cargar_contenido('main-content','Institucion/vista_institucion_registrar.php');">
-                    <span>Nueva Instituci&oacute;n</span>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li>
-                <a style="display:none;"s href class="auto">      
-                  <span class="pull-right text-muted">
-                  <b class="badge bg-info pull-right">A</b>
-                  </span>
-                  <i class="fa fa-list icon text-success"></i>
-                  <span class="font-bold">&Aacute;REA</span>
-                </a>
-                <ul class="nav nav-sub dk">
-                  <li ui-sref-active="active"onclick="cargar_contenido('main-content','Area/vista_area_listar.php');">
-                    <a ui-sref="app.dashboard-v2">
-                    <span>Listar &Aacute;reas</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active"onclick="cargar_contenido('main-content','Area/vista_area_registrar.php');">
-                    <a ui-sref="app.dashboard-v2">
-                    <span>Nueva &Aacute;rea</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+             
               <li ui-sref-active="active">
                 <a ui-sref="app.mail.list">
                   <b class="badge bg-info pull-right">D</b>

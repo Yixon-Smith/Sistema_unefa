@@ -9,7 +9,7 @@ function Limpieza_post_ciudadano(){
 	$("#txtFechaNacimiento").val("");
 	$("#txtDistrito").val("");	
 	$("#txtProvincia").val("");	
-	$("#txtDepartamento").val("");
+	$("#txtMatricula").val("");
 	$("#txtDireccion").val("");
 	$("#txtTelefono").val("");
 	$("#txtEmail").val("");

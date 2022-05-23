@@ -57,7 +57,7 @@
 	                    </div> 
 	                    <div class="col-md-6">
 	                        <label>MATRICULA</label>
-	                        <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+	                        <select id="cbm_matricula"  style="width: 100%" class="form-control select2">
 							<option value="2613">ING.SISTEMA</option>
 							<option value="2013">ING.ELECTRICA</option>
 							<option value="NATURAL">ING.AGRONOMIA</option>
@@ -69,7 +69,7 @@
 	                    </div> 
 						<div class="col-md-6">
 	                        <label>Tipo Sangre </label>
-	                        <select id="txtsangre_modal"  style="width: 100%" class="form-control select3">
+	                        <select id="txtSangre"  style="width: 100%" class="form-control select3">
 	                          <option value="O+">O+</option>
 	                          <option value="E-">E-</option>
 	                        </select>

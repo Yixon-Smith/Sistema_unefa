@@ -99,8 +99,8 @@
             <div class="col-sm-2">
                 <label >Sexo</label>
                 <select id="txtGenero" class="form-control select2" name="txtGenero">
-                  <option value="M">HOMBRE</option>
-                  <option value="F">MUJER</option> 
+                  <option value="Masculino">HOMBRE</option>
+                  <option value="Femenino">MUJER</option> 
                 </select>
                 <br>
             </div><br>
@@ -128,13 +128,13 @@
             </div><br>
             <div class="col-md-2">
                 <label>MATRICULA</label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="cbm_matricula"  style="width: 100%" class="form-control select2">
                   <option value="2613">ING.SISTEMA</option>
-                  <option value="2013">ING.ELECTRICA</option>
-                  <option value="NATURAL">ING.AGRONOMIA</option>
-                  <option value="NATURAL">LIC.ADMINISTRACION</option>
-                  <option value="NATURAL">LIC.ECONOMIA</option>
-                  <option value="NATURAL">TSU.ENFERMERIA</option>
+                  <option value="2213">ING.ELECTRICA</option>
+                  <option value="2013">ING.AGRONOMIA</option>
+                  <option value="0913">LIC.ADMINISTRACION</option>
+                  <option value="1310">LIC.ECONOMIA</option>
+                  <option value="1303">TSU.ENFERMERIA</option>
                 </select>
                 <br>
             </div>   

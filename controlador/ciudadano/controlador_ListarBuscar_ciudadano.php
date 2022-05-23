@@ -3,7 +3,7 @@
     $boton = $_POST['boton'];
     if($boton==='buscar'){
       $inicio = 0;
-      $limite = 5;
+      $limite = 8;
       if(isset($_POST['pagina'])){
         $pagina = $_POST['pagina'];
         $inicio = ($pagina -1) * $limite;

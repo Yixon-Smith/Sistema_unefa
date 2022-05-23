@@ -34,7 +34,7 @@
 
             <div class="col-md-2">
                 <label>Estado Civil</label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="txtCivil"  style="width: 100%" class="form-control select2">
                   <option value="2613">CASADO</option>
                   <option value="2013">SOLTERO</option>
                   <option value="">VIODU/A</option>
@@ -44,7 +44,7 @@
             </div> 
             <div class="col-md-2">
                 <label>Etnia</label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="txtetnias"  style="width: 100%" class="form-control select2">
                   <option value="">NOSE</option>
                   <option value="">OTRA</option>
                   <option value=""></option>
@@ -55,7 +55,7 @@
 
             <div class="col-md-2">
                 <label>Pais</label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="txtPais"  style="width: 100%" class="form-control select2">
                   <option value="Venezuela">Venezuela</option>
                   <option value="">DUBAI</option>
                  
@@ -65,7 +65,7 @@
 
             <div class="col-md-2">
                 <label>Discapacidad</label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="txtDiscapacidad"  style="width: 100%" class="form-control select2">
                   <option value="2613">SIN PIE</option>
                   <option value="2013">SIN MANO</option>
                   <option value="">SIN PATA</option>
@@ -76,7 +76,7 @@
 
             <div class="col-md-2">
                 <label>Condicion</label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="txtCondicion"  style="width: 100%" class="form-control select2">
                   <option value="2613">ni idea</option>
                   <option value="2013">sera</option>
                   <option value="">creo</option>
@@ -87,7 +87,7 @@
 
             <div class="col-md-2">
                 <label>Lugar Nacimiento </label>
-                <select id="cbm_tipo"  style="width: 100%" class="form-control select2">
+                <select id="txtNacimiento"  style="width: 100%" class="form-control select2">
                   <option value="2613">HOSPITAL</option>
                   <option value="2013">MICASA</option>
                   <option value="NATURAL"></option>
@@ -172,7 +172,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="date" style="padding: 0px 12px;background-color: #FFFFFF;font-weight:bold;" id="txtfecha"  class="form-control"  >
+                  <input type="date" style="padding: 0px 12px;background-color: #FFFFFF;font-weight:bold;" id="txtfechaIngreso"  class="form-control"  >
                 </div><br>
             </div>
 
@@ -182,7 +182,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="date" style="padding: 0px 12px;background-color: #FFFFFF;font-weight:bold;" id="txtfecha"  class="form-control"  >
+                  <input type="date" style="padding: 0px 12px;background-color: #FFFFFF;font-weight:bold;" id="txtfechainicio"  class="form-control"  >
                 </div><br>
             </div>
             

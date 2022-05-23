@@ -125,7 +125,6 @@ function listar_ciudadano_vista(valor,pagina){
 				cadena += "<th style = 'text-align: center'>NOMBRE Y APELLIDOS</th>";
 				cadena += "<th style = 'text-align: center'>DNI</th>";
 				cadena += "<th style = 'text-align: center'>SEXO</th>";
-				cadena += "<th style = 'text-align: center'>SEXO</th>";
 				cadena += "<th style = 'text-align: center'>FECHA NACIMIENTO</th>";
 				cadena += "<th style = 'text-align: center'>MATRICULA</th>";
 				cadena += "<th style = 'text-align: center'>ESTADO</th>";
@@ -155,7 +154,7 @@ function AbrirModalEditarCiudadano(control){
 	$('#txtnombre_alimentos').val(datos_split[1]);
 	$('#txtapellidopaterno').val(datos_split[2]);
 	$('#txtapellidomaterno').val(datos_split[3]);
-	$('#cbm_tipo').val(datos_split[13]).trigger("change");
+	$('#cbm_matricula').val(datos_split[13]).trigger("change");
 	$('#txtemail_modal').val(datos_split[10]);
 	$('#txtnrodocumento').val(datos_split[4]);
 	$('#txttelefono_modal').val(datos_split[8]);
@@ -168,7 +167,7 @@ function Editar_ciudadano(){
 	var nombre    = $("#txtnombre_alimentos").val();
 	var apepat    = $("#txtapellidopaterno").val();
 	var apemat    = $("#txtapellidomaterno").val();
-	var tipoper   = $("#cbm_tipo").val();
+	var matricula   = $("#cbm_matricula").val();
 	var telefono  = $("#txttelefono_modal").val();
 	var movil     = $("#txtmovil_modal").val();
 	var sangre    = $("#txtsangre_modal").val();
@@ -189,7 +188,7 @@ function Editar_ciudadano(){
 		nombre:nombre,
 		apepat:apepat,		
 		apemat:apemat,
-		tipopersona:tipoper,
+		matricula:matricula,
 		telefono:telefono,	
 		movil:movil,
 		direccion:direccion,
@@ -250,7 +249,7 @@ function revisar_dni_ciudadano(){
 	var direccion = $("#txtdireccion").val();
 	var dni       = $("#txtdni").val();
 	var sexo      = $("#txtGenero").val();
-	var tipo      = $("#cbm_tipo").val();
+	var matricula      = $("#cbm_matricula").val();
 	var email     = $("#txtemail").val();
 	var telefono  = $("#txttelefono").val();
 	var movil     = $("#txtmovil").val();
@@ -286,8 +285,8 @@ function Registrar_ciudadano(){
 	var direccion = $("#txtdireccion").val();
 	var dni       = $("#txtdni").val();
 	var sexo      = $("#txtGenero").val();
-	var tsangre      = $("#txtSangre").val();
-	var tipo      = $("#cbm_tipo").val();
+	var tsangre   = $("#txtSangre").val();
+	var matricula = $("#cbm_matricula").val();
 	var email     = $("#txtemail").val();
 	var telefono  = $("#txttelefono").val();
 	var movil     = $("#txtmovil").val();
@@ -298,7 +297,7 @@ function Registrar_ciudadano(){
 			nombre:nombre,
 			apepat:apepat,		
 			apemat:apemat,
-			tipopersona:tipo,
+			matricula:matricula,
 			telefono:telefono,	
 			movil:movil,
 			direccion:direccion,

@@ -10,7 +10,7 @@
 	$dni    = $_POST["nrodocume"];
 	$email  = $_POST["email"];
 	$genero = $_POST["sexo"];
-	$tsangre = $_POST["sangre"];
+	$tsangre = $_POST["tsangre"];
 
 	include '../../modelo/modelo_ciudadano.php';
 	$MC = new Modelo_ciuadano();

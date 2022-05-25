@@ -20,8 +20,8 @@
 					$this->conexion->cerrar();	
 				}
 		}
-		function Registrar_documento($iddocumento,$asunto,$idtipodocu,$idarea,$idremitente,$idusuario,$opcion,$destinoImagen,$cont){
-			$sql = "call PA_REGISTRARDOCUMENTOARCHIVO('$iddocumento','$asunto','$idtipodocu','$idarea','$idremitente','$idusuario','$opcion','$destinoImagen','$cont')";
+		function Registrar_documento($iddocumento,$asunto,$idremitente,$idusuario,$opcion,$destinoImagen,$cont){
+			$sql = "call PA_REGISTRARDOCUMENTOARCHIVO('$iddocumento','$asunto','$idremitente','$idusuario','$opcion','$destinoImagen','$cont')";
 			if ($resultado = $this->conexion->conexion->query($sql)){
 				return 1;
 			}
@@ -42,9 +42,17 @@
 		}
 		function listar_documento($valor, $inicio=FALSE,$limite=FALSE){
 			if ($inicio!==FALSE && $limite!==FALSE) {
-			    $sql = "SELECT documento.documento_cod, documento.doc_asunto,documento.doc_fecha_recepcion,tipo_documento.tipodo_descripcion,area.area_nombre,documento.doc_estado,documento.doc_tipo,area.area_cod,tipo_documento.tipodocumento_cod,IFNULL(documento.doc_documento,'') FROM documento INNER JOIN tipo_documento ON documento.tipoDocumento_cod = tipo_documento.tipodocumento_cod INNER JOIN area ON documento.area_cod = area.area_cod WHERE documento.documento_cod LIKE '".$valor."%' ORDER BY documento.documento_cod DESC LIMIT $inicio,$limite";
+				$sql = "SELECT documento.documento_cod, 
+				documento.doc_asunto,documento.doc_fecha_recepcion
+				,documento.doc_estado,documento.doc_tipo,IFNULL(documento.doc_documento,'') 
+				FROM documento   WHERE documento.documento_cod LIKE '".$valor."%' ORDER BY 
+				documento.documento_cod DESC LIMIT $inicio,$limite";
 			}else{
-			    $sql = "SELECT documento.documento_cod, documento.doc_asunto,documento.doc_fecha_recepcion,tipo_documento.tipodo_descripcion,area.area_nombre,documento.doc_estado,documento.doc_tipo,area.area_cod,tipo_documento.tipodocumento_cod,IFNULL(documento.doc_documento,'') FROM documento INNER JOIN tipo_documento ON documento.tipoDocumento_cod = tipo_documento.tipodocumento_cod INNER JOIN area ON documento.area_cod = area.area_cod WHERE documento.documento_cod LIKE '".$valor."%' ORDER BY documento.documento_cod DESC";
+			    $sql = "SELECT documento.documento_cod, 
+				documento.doc_asunto,documento.doc_fecha_recepcion
+				,documento.doc_estado,documento.doc_tipo,
+				IFNULL(documento.doc_documento,'') FROM documento  WHERE documento.documento_cod LIKE '".$valor."%' ORDER BY 
+				documento.documento_cod DESC";
 			}
 			$resultado =  $this->conexion->conexion->query($sql);
 			$arreglo = array();
@@ -101,8 +109,66 @@
 			}
 			$this->conexion->Cerrar_Conexion();
 		}
+
+		function delete_file($id)
+		{
+			$sql="DELETE FROM temp_file_student WHERE temp_file_student.id = '$id'";
+			if ($resultado = $this->conexion->conexion->query($sql)){
+				return 1;
+			}
+			else{
+				return 0;
+			}
+			$this->conexion->Cerrar_Conexion();
+		}
+
+		function file_student_temp($id)
+		{
+			$sql="SELECT * FROM `temp_file_student` where id = '$id'";
+			$resultado =  $this->conexion->conexion->query($sql);
+			$arreglo = array();
+			while($consulta_VU=mysqli_fetch_array($resultado)){ ///MYSQL_BOTH, MYSQL_ASSOC, MYSQL_NUM
+			    $arreglo[] = $consulta_VU;
+			}
+			return $arreglo;
+			$this->conexion->cerrar();
+		}
+
 		function Rechazado_documento($iddocumento){
 			$sql = "UPDATE documento SET doc_estado = 'RECHAZADO' WHERE documento_cod = '$iddocumento'";
+			if ($resultado = $this->conexion->conexion->query($sql)){
+				return 1;
+			}
+			else{
+				return 0;
+			}
+			$this->conexion->Cerrar_Conexion();
+		}
+		function list_files_temp()
+		{
+			$sql="SELECT * FROM `temp_file_student`";
+			$resultado =  $this->conexion->conexion->query($sql);
+			$arreglo = array();
+			while($consulta_VU=mysqli_fetch_array($resultado)){ ///MYSQL_BOTH, MYSQL_ASSOC, MYSQL_NUM
+			    $arreglo[] = $consulta_VU;
+			}
+			return $arreglo;
+			$this->conexion->cerrar();
+		}
+		
+		function  store_files($name_file,$url_file){
+			$sql = "call ADD_FILE_STUDEN_TEMP('$name_file','$url_file','1')";
+			if ($resultado = $this->conexion->conexion->query($sql)){
+				return 1;
+			}
+			else{
+				return 0;
+			}
+			$this->conexion->Cerrar_Conexion();
+		}
+
+		function Add_files_student($iddocumento,$name_file,$url_file){
+			$sql = "call ADD_FILE_STUDEN('$iddocumento','$name_file','$url_file')";
 			if ($resultado = $this->conexion->conexion->query($sql)){
 				return 1;
 			}

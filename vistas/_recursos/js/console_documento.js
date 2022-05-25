@@ -13,6 +13,7 @@ function listar_documento_vista(valor,pagina){
 		success: function(resp){
 			var datos = resp.split("*"); 
 			var valores = eval(datos[0]); 
+			console.log(valores);
 			if(valores.length>0){
 				var cadena = "";
 				cadena += "<table border='0' class='table table-condensed jambo_table'>";
@@ -21,7 +22,7 @@ function listar_documento_vista(valor,pagina){
 				cadena += "<th style = 'text-align: center;width: 80px;word-wrap: break-word;'>ID</th>";
 				cadena += "<th style = 'text-align: center;width: 20px;word-wrap: break-word;'>ASUNTO</th>";
 				cadena += "<th style = 'text-align: center;width: 150px;word-wrap: break-word;'>FECHA RECEPCI&OacuteN</th>";
-				cadena += "<th style = 'text-align: center;width: 150px;word-wrap: break-word;'>&Aacute;REA ASIGNADA</th>"
+				// cadena += "<th style = 'text-align: center;width: 150px;word-wrap: break-word;'>&Aacute;REA ASIGNADA</th>"
 				cadena += "<th style = 'text-align: center;width: 120px;word-wrap: break-word;''>TIPO DOCUMENTO</th>";
 				cadena += "<th style = 'text-align: center;width: 30px;word-wrap: break-word;'>REMITENTE</th>";
 				cadena += "<th style = 'text-align: center;width: 20px;word-wrap: break-word;'>ARCHIVO</th>";
@@ -36,21 +37,23 @@ function listar_documento_vista(valor,pagina){
 					cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'><button name='"+valores[i][0]+"*"+valores[i][1]+"' class='btn btn-info' title='Vista previa del asunto' style='background-color: #ffffff ; border-color: #ffffff' onclick='AbrirModalAsuntoDocumento(this)'><span class='fa fa-eye' style='color: #000000'></span>";
 					cadena += "&nbsp;</button> </td>";
 					cadena += "<td style = 'text-align: center;width: 150px;word-wrap: break-word;'>"+valores[i][2]+"</td>";
-					cadena += "<td style = 'text-align: center;width: 150px;word-wrap: break-word;'>"+valores[i][4]+"</td>";
+					// cadena += "<td style = 'text-align: center;width: 150px;word-wrap: break-word;'>"+valores[i][4]+"</td>";
 					cadena += "<td style = 'text-align: center;width: 120px;word-wrap: break-word;'>"+valores[i][3]+"</td>";
-					cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'><button name='"+valores[i][0]+"*"+valores[i][1]+"*"+valores[i][6]+"' class='btn btn-info' title='Vista previa de los Datos del remitente' style='background-color: #ffffff ; border-color: #ffffff' onclick='AbrirModalVerRemitente(this)'><span class='fa fa-eye' style='color: #000000'></span>";
+					cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'><button name='"+valores[i][0]+"*"+valores[i][1]+"*"+valores[i][5]+"' class='btn btn-info' title='Vista previa de los Datos del remitente' style='background-color: #ffffff ; border-color: #ffffff' onclick='AbrirModalVerRemitente(this)'><span class='fa fa-eye' style='color: #000000'></span>";
 					cadena += "&nbsp;</button> </td>";
-					cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'><button name='"+valores[i][9]+"' class='btn btn-primary btn-sx' style='background-color:#fff;border-color:#fff' title='Ver documento Cargado' onclick='AbrirModalArchivo_documento(this)'><i class='fa  fa-folder-open' style='color:orange;'></i></button></td>";
+					cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'><button name='"+valores[i][7]+"' class='btn btn-primary btn-sx' style='background-color:#fff;border-color:#fff' title='Ver documento Cargado' onclick='AbrirModalArchivo_documento(this)'><i class='fa  fa-folder-open' style='color:orange;'></i></button></td>";
 					if (valores[i][5]=="INACTIVO") {
-						cadena += "<tdstyle = 'text-align: center;width: 20px;word-wrap: break-word;'> <span class='badge bg-danger' style='color:White;'>"+valores[i][5]+"</span> </td>";
+						cadena += "<tdstyle = 'text-align: center;width: 20px;word-wrap: break-word;'> <span class='badge bg-danger' style='color:White;'>"+valores[i][4]+"</span> </td>";
 					}else if (valores[i][5]=="PENDIENTE") {
-						cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'> <span class='badge bg-warning' style='color:White;'>"+valores[i][5]+"</span> </td>";
+						cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'> <span class='badge bg-warning' style='color:White;'>"+valores[i][4]+"</span> </td>";
 					}else
 					{
-						cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'> <span class='badge bg-success' style='color:White;'>"+valores[i][5]+"</span> </td>";
+						cadena += "<td style = 'text-align: center;width: 20px;word-wrap: break-word;'> <span class='badge bg-success' style='color:White;'>"+valores[i][4]+"</span> </td>";
 					}
-					cadena += "<td style = 'text-align: center;width: 10px;word-wrap: break-word;'><button name='"+valores[i][0]+"*"+valores[i][1]+"*"+valores[i][2]+"*"+valores[i][3]+"' class='btn btn-primary' onclick='AbrirModalDocumento(this)'><span class='glyphicon glyphicon-pencil'></span>";
-					cadena += "</button></td> ";
+					cadena += "<td style = 'width: 20px;word-wrap: break-word;'>";
+					cadena += "<button name='"+valores[i][0]+"*"+valores[i][1]+"*"+valores[i][2]+"*"+valores[i][3]+"' class='btn btn-primary mx-1' onclick='AbrirModalDocumento(this)'><span class='glyphicon glyphicon-pencil'></span></button>";
+					cadena += "<button name='"+valores[i][0]+"' class='btn btn-danger' onclick='delete_document(this)'><span class='glyphicon glyphicon-pencil'></span></button>";
+					cadena += "</td> ";
 					cadena += "</tr>";
 				}
 				cadena += "</tbody>";
@@ -130,6 +133,7 @@ function AbrirModalArchivo_documento(control){
 	$("#modal_archivo_documento").modal('show');
 	var datos = control.name;
 	var datos_split = datos.split("*");
+	console.log(datos_split);
 		if (datos_split[0]!="" ) {
 		var cadena =  '<object data="../controlador/documento/'+datos_split[0]+'"#zoom=100" type="application/pdf" style="width: 100%; height: 100%; min-height: 480px;">';
 		$("#id_archivodocumento").html(cadena);
@@ -156,6 +160,9 @@ function AbrirModalDocumento(control){
 	$('#txtinstitucion_modal').val(datos_split[1]);
 	$('#txttipoinstitucion_modal').val(datos_split[2]);
 	$('#cmb_estado').val(datos_split[3]).trigger("change");	
+}
+function delete_document(id) {
+	console.log(id.name);
 }
 function AbrirModalVerRemitente(control){
 	var datos = control.name;
@@ -258,6 +265,12 @@ function Listar_areas_combo() {
 		}
 	})
 }
+
+// function modal_hiden(modal) {
+// 	$("#"+modal).modal("hide");
+// 	// cargar_contenido('main-content','Ciudadano/vista_registrar_ciudadano.php');
+// }
+
 function AbrirModalRemitente(){
 	$('#modal_remitente').modal({backdrop: 'static', keyboard: false})
 	$("#modal_remitente").modal("show");
@@ -278,7 +291,9 @@ function listar_ciudadanoremitente_vista(valor,pagina){
 	    },
 		success: function(resp){
 			var datos = resp.split("*"); 
+			// console.log(datos);
 			var valores = eval(datos[0]); 
+			console.log(valores);
 			if(valores.length>0){
 				var cadena = "";
 				cadena += "<table  class='table table-condensed jambo_table'>";
@@ -286,8 +301,8 @@ function listar_ciudadanoremitente_vista(valor,pagina){
 				cadena += "<tr >";
 				cadena += "<th style = 'text-align: center' hidden='true' >ID</th>";
 				cadena += "<th style = 'text-align: center'>NOMBRE Y APELLIDOS</th>";
-				cadena += "<th style = 'text-align: center'>DNI</th>";
-				cadena += "<th style = 'text-align: center'>FECHA NACIMIENTO</th>";
+				cadena += "<th style = 'text-align: center'>CEDULA</th>";
+				// cadena += "<th style = 'text-align: center'>FECHA NACIMIENTO</th>";
 				cadena += "<th style = 'text-align: center'>ESTADO</th>";
 				cadena += "<th>ACCI&Oacute;N</th>";
 				cadena += "</tr>";
@@ -299,14 +314,14 @@ function listar_ciudadanoremitente_vista(valor,pagina){
 					cadena += "<tr>";			
 					cadena += "<td align='center' hidden>"+valores[i][0]+"</td>";
 					cadena += "<td>"+valores[i][1]+" "+valores[i][2]+" "+valores[i][3]+"</td>";
-					cadena += "<td align='center'>"+valores[i][4]+"</td>";
-					cadena += "<td align='center'>"+valores[i][6]+"</td>";
+					cadena += "<td align='center'>V-"+valores[i][4]+"</td>";
+					// cadena += "<td align='center'>"+valores[i][6]+"</td>";
 					if (valores[i][12]=="INACTIVO") {
 						cadena += "<td style = 'text-align: center'> <span class='badge bg-danger' style='color:White;'>"+valores[i][12]+"</span> </td>";
 					}else{
 						cadena += "<td  style = 'text-align: center'> <span class='badge bg-success' style='color:White;'>"+valores[i][12]+"</span> </td>";
 					}
-					cadena += "<td><button name='"+valores[i][0]+"*"+datoscompletos+"*"+"C"+"' class='btn btn-primary' onclick='EnviarDatosRemitente(this)'><span class='glyphicon glyphicon-pencil'></span>";
+					cadena += "<td><button name='"+valores[i][0]+"*"+datoscompletos+"*"+"C"+"*"+valores[i][4]+"' class='btn btn-primary' onclick='EnviarDatosRemitente(this)'><span class='glyphicon glyphicon-pencil'></span>";
 					cadena += "</button></td> ";
 					cadena += "</tr>";
 				}
@@ -493,6 +508,7 @@ function EnviarDatosRemitente(control){
 	$("#txtidremitente").val(datos_split[0]);
 	$("#txtdatosremitente").val(datos_split[1]);
 	$("#txttipo").val(datos_split[2]);
+	$("#view_cedula").val("V-"+datos_split[3]);
 	$("#modal_remitente").modal("hide");
 }
 function TraerCodigoDocumento(){
@@ -609,18 +625,18 @@ function Registrar_documento(){
 	  }
 	})			
 }
-function Registrar_documento_post(){
-	$(document).on('submit', '#create-form-documento', function() { 
-      var data = $(this).serialize(); 
+function Registrar_documento_post(){	
+      var data = $('#create-form-documento').serialize(); 
       $.ajax({  
         type : 'POST',
         mimeType: "multipart/form-data",
         url:'../controlador/documento/controlador_registrar_documento.php',
-        data:  new FormData(this),
+        data:  new FormData(document.getElementById("create-form-documento")),
         contentType: false,
         cache: false,
         processData:false,
         success:function(resp) {
+			console.log(resp);
           if(resp>0){
           	document.getElementById("create-form-documento").reset();
             swal("Documento Registrado!", "", "success")
@@ -655,7 +671,6 @@ function Registrar_documento_post(){
         }  
       });
       return false;
-    }); 
 }
 //=============================================================================================================================
 //=============================================================================================================================
@@ -854,4 +869,41 @@ function AbrirfuncionRechazarSolicitud(control){
 	   swal("Proceso Cancelado","","warning");
 	  }
 	});
+}
+function list_files_temp() {
+	$.ajax({
+		url:'../controlador/documento/controlador_list_file_temp.php',
+		type:'GET'
+	})
+	.done(function(resp) {
+		var data = JSON.parse(resp);
+		// console.log(data);
+		let cadena="";
+		for (let i = 0; i < data.length; i++) {
+			
+			cadena+='<div title="'+data[i][2]+'" class="col-md-1">';
+			cadena+='<div class="f-p">';
+			cadena+='<span onclick="delete_files('+data[i][0]+')" class="btn-delet">X</span>';
+			cadena+='<span><i class="fa fa-file"></i></span>';
+			cadena+='</div>';
+			cadena+='</div>';
+			cadena+='</div>';	
+			
+		}
+
+		$('#lis_files_temp').html(cadena);
+	})
+}
+
+function delete_files(id) {
+// console.log(id);
+$.ajax({
+	url:'../controlador/documento/controlador_delete_file.php?id='+id,
+	type:'GET'
+})
+.done(function(resp){
+	// var data = JSON.parse(resp);
+	console.log(resp);
+	list_files_temp();
+})	
 }
